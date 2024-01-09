@@ -9,7 +9,7 @@ import Foundation
 
 struct UserManager {
     
-    let loginApiURL = "https://api.dev2.constructn.ai/api/v1/users/register"
+    let loginApiURL = "http://192.168.1.10:3000/api/email"
     var email = ""
     var password = ""
     
@@ -25,19 +25,21 @@ struct UserManager {
     }
     
     func sendLoginRequest() {
-        guard let url = URL(string: loginApiURL) else {
-            print("Invalid URL")
-            return
-                    }
+        
                     if let url = URL(string : loginApiURL) {
                         var request = URLRequest(url : url)
+                        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                        let encoder = JSONEncoder()
                         request.httpMethod = "POST"
             
-                        let parameters : [String : Any] = [
-                            "email" : self.email,
-                            "password" : self.password
+                        let parameters : [String : String] = [
+                                    "from": "assistify.psgtech@gmail.com",
+                                     "to": email,
+                                     "subject": "Mail from Swift Post API",
+                                     "text": "Test Email for Swift"
                         ]
-            
+                        
+
             
                         if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
                             request.httpBody = jsonData
@@ -52,7 +54,7 @@ struct UserManager {
             
                             else {
                                 print(data!)
-                                print("Error: Unexpected response")
+                                print("Augxy Moon")
                             }
                         }
                         task.resume()
