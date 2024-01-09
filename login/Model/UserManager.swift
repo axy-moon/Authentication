@@ -23,4 +23,10 @@ struct UserManager {
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: self.email)
     }
+    
+    func sendLoginRequest() {
+//        let apiURL = URL("")
+            
+        print("Api Call")
+    }
 }

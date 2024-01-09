@@ -25,15 +25,15 @@ class LoginViewController: UIViewController {
             user.email = emailFIeld.text!
             user.password = passwordField.text!
             if user.validateEmail() {
-                print("Email Validated")
+                user.sendLoginRequest()
             } else {
                 sendAlert(title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
                 emailFIeld.text = ""
                 passwordField.text = ""
             }
         } else {
-            sendAlert(title: "Error", message: "All fields are required", actionTitle: "Dismiss")
-        }
+                sendAlert(title: "Error", message: "All fields are required", actionTitle: "Dismiss")
+            }
     }
     
     func sendAlert(title : String,message: String,actionTitle : String) {
