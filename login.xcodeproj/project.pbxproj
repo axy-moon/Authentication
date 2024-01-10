@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0D8A0C2B4EB52600E81B14 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D8A0B2B4EB52600E81B14 /* RegisterViewController.swift */; };
+		1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */; };
 		1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */; };
 		1D5ED4402B4C2D870029ED12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED43F2B4C2D870029ED12 /* SceneDelegate.swift */; };
 		1D5ED4422B4C2D870029ED12 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED4412B4C2D870029ED12 /* LoginViewController.swift */; };
@@ -17,7 +19,6 @@
 		1D5ED45F2B4C2D870029ED12 /* loginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */; };
 		1D5ED4612B4C2D870029ED12 /* loginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */; };
 		1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD146B2B4D36DA0008E194 /* UserManager.swift */; };
-		1DBD14702B4DCFE90008E194 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD146F2B4DCFE90008E194 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D0D8A0B2B4EB52600E81B14 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		1D5ED43A2B4C2D870029ED12 /* login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D5ED43F2B4C2D870029ED12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITests.swift; sourceTree = "<group>"; };
 		1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1DBD146B2B4D36DA0008E194 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		1DBD146F2B4DCFE90008E194 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				1DBD146B2B4D36DA0008E194 /* UserManager.swift */,
-				1DBD146F2B4DCFE90008E194 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				1D5ED4412B4C2D870029ED12 /* LoginViewController.swift */,
+				1D0D8A0B2B4EB52600E81B14 /* RegisterViewController.swift */,
+				1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -289,9 +292,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D5ED4422B4C2D870029ED12 /* LoginViewController.swift in Sources */,
+				1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */,
+				1D0D8A0C2B4EB52600E81B14 /* RegisterViewController.swift in Sources */,
 				1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */,
 				1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */,
-				1DBD14702B4DCFE90008E194 /* UserData.swift in Sources */,
 				1D5ED4402B4C2D870029ED12 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
