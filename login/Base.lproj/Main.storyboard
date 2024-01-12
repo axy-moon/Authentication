@@ -67,7 +67,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onLoginPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ItB-om-pKf"/>
-                                    <segue destination="XAJ-Uz-Gyf" kind="show" identifier="loginSuccess" id="9ez-Os-Oqu"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Qz-wG-od3">
@@ -94,6 +93,7 @@
                         <outlet property="emailFIeld" destination="odS-DM-lXH" id="k8b-Bx-boz"/>
                         <outlet property="passwordField" destination="5Qz-wG-od3" id="HND-FH-q4M"/>
                         <segue destination="xce-Zn-97z" kind="show" identifier="register" id="NMh-QT-OLa"/>
+                        <segue destination="XAJ-Uz-Gyf" kind="show" identifier="loginSuccess" id="nfV-EW-xaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -242,17 +242,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login Successfull" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLD-qN-lCK">
-                                        <rect key="frame" x="105" y="507" width="182" height="29"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="constructn_ai_logo.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="prP-tc-zna">
+                                        <rect key="frame" x="121" y="309" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login Successful" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLD-qN-lCK">
+                                        <rect key="frame" x="108" y="509" width="176" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="constructn_ai_logo.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="prP-tc-zna">
-                                        <rect key="frame" x="121" y="309" width="150" height="150"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXA-tc-Lb2">
+                                        <rect key="frame" x="167" y="206" width="59" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                         </subviews>
@@ -267,6 +274,9 @@
                             <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         </view>
                     </navigationItem>
+                    <connections>
+                        <outlet property="usernameLabel" destination="vXA-tc-Lb2" id="9EK-vl-0os"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbx-qS-qm1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

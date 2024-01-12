@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailFIeld: UITextField!
     
+    var username = ""
+    
     var user = UserManager()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,19 @@ class LoginViewController: UIViewController {
             user.email = emailFIeld.text!
             user.password = passwordField.text!
             if user.validateEmail() {
-                user.sendLoginRequest()
-                performSegue(withIdentifier: "loginSuccess", sender: self)
-
+                do {
+                    Task {
+                        let success = try await performLogin()
+                    DispatchQueue.main.async {
+                                if (success) {
+                                    self.performSegue(withIdentifier: "loginSuccess", sender: self)
+                                } else {
+                                    self.sendAlert(title: "Access Denied", message: "Invalid Credentials", actionTitle: "Dismiss")
+                                }
+                    }
+                    }
+                    
+                }
             } else {
                 sendAlert(title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
                 emailFIeld.text = ""
@@ -48,20 +60,35 @@ class LoginViewController: UIViewController {
     }
     
     
+    func performLogin() async throws -> Bool {
+        do {
+            let res = try await user.sendLoginRequest()
+            username = res.result.firstName + " " + res.result.lastName
+            print(username)
+            return res.success
+        }
+        catch LoginError.invalidResponse {
+            print("Response Error")
+            return false
+        }
+        catch {
+            print("Unexpected Error")
+                return false
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "register" {
             let destinationVC = segue.destination as! RegViewController
             destinationVC.msg = "Success"
         }
         
-//        else if segue.identifier == "loginSuccess" {
-//            if user.sendLoginRequest() {
-//                let destinationVC = segue.destination as! HomeViewController
-//            }
-//            else {
-//                sendAlert(title: "Error", message: "Invalid Credentials", actionTitle: "Dismiss")
-//            }
-//        }
+        else if segue.identifier == "loginSuccess" {
+            let destinationVC = segue.destination as! HomeViewController
+            destinationVC.username = username
+        }
     }
     
 }
+
