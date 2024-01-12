@@ -8,6 +8,7 @@
 import Foundation
 
 struct UserData : Codable {
+    let success : Bool
     let result : Result
 }
 
@@ -15,6 +16,7 @@ struct Result : Codable {
     let firstName : String
     let lastName : String
     let email : String
+    let token : String
 }
 
 struct UserManager {
@@ -22,7 +24,6 @@ struct UserManager {
     let loginApiURL = "https://api.dev2.constructn.ai/api/v1/users/signin"
     var email = ""
     var password = ""
-    
     
     func loginUser(email : String,password : String) {
         print("User Logged In")
@@ -34,40 +35,49 @@ struct UserManager {
         return emailPredicate.evaluate(with: self.email)
     }
     
-    func sendLoginRequest() 
-    {
-        
+    func sendLoginRequest()  {
                     if let url = URL(string : loginApiURL) {
                         var request = URLRequest(url : url)
                         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                         request.httpMethod = "POST"
-            
                         let parameters : [String : String] = [
-                            "email" : "Sathiyalingesh2002@gmail.com",
-                            "password" : "password123"
+                            "email" : email,
+                            "password" : password
                         ]
                         
-
-            
                         if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
                             request.httpBody = jsonData
                         }
-            
+                        
                         print(request)
             
                         let task =  URLSession.shared.dataTask(with:request) { (data, response, error) in
                             if let error = error {
                                 print("Error: \(error)")
                             }
-            
+                            else if let httpResponse = response as? HTTPURLResponse {
+                                if (200...299).contains(httpResponse.statusCode) {
+                                    if let data = data {
+                                        do {
+                                            let res = try JSONDecoder().decode(UserData.self, from: data)
+                                            
+                                            if res.success == true {
+                                                print("Name : \(res.result.firstName) \(res.result.lastName)")
+                                                print(res.result.token)
+                                            }
+                                        } catch {
+                                            print("Error decoding JSON: \(error)")
+                                        }
+                                    }
+                                }
+                            }
                             else {
-                                let userData =  try? JSONDecoder().decode(UserData.self, from: data!)
-                                print(userData!)
-                                print("Augxy Moon")
+                                print("Error: Unexpected response status code")
                             }
                         }
                         task.resume()
             
                     }
         }
+    
 }

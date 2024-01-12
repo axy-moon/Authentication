@@ -20,21 +20,22 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onLoginPress(_ sender: UIButton) {
-         user.sendLoginRequest()
         
-//        if emailFIeld.text != "" && passwordField.text != "" {
-//            user.email = emailFIeld.text!
-//            user.password = passwordField.text!
-//            if user.validateEmail() {
-//                user.sendLoginRequest()
-//            } else {
-//                sendAlert(title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
-//                emailFIeld.text = ""
-//                passwordField.text = ""
-//            }
-//        } else {
-//                sendAlert(title: "Error", message: "All fields are required", actionTitle: "Dismiss")
-//            }
+        if emailFIeld.text != "" && passwordField.text != "" {
+            user.email = emailFIeld.text!
+            user.password = passwordField.text!
+            if user.validateEmail() {
+                user.sendLoginRequest()
+                performSegue(withIdentifier: "loginSuccess", sender: self)
+
+            } else {
+                sendAlert(title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
+                emailFIeld.text = ""
+                passwordField.text = ""
+            }
+        } else {
+                sendAlert(title: "Error", message: "All fields are required", actionTitle: "Dismiss")
+            }
     }
     
     @IBAction func registerButton(_ sender: UIButton) {
@@ -52,6 +53,15 @@ class LoginViewController: UIViewController {
             let destinationVC = segue.destination as! RegViewController
             destinationVC.msg = "Success"
         }
+        
+//        else if segue.identifier == "loginSuccess" {
+//            if user.sendLoginRequest() {
+//                let destinationVC = segue.destination as! HomeViewController
+//            }
+//            else {
+//                sendAlert(title: "Error", message: "Invalid Credentials", actionTitle: "Dismiss")
+//            }
+//        }
     }
     
 }
