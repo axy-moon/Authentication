@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = "Hello \(username)"
+        print(username)
         // Do any additional setup after loading the view.
     }
     

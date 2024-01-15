@@ -19,6 +19,13 @@ struct Result : Codable {
     let token : String
 }
 
+struct NewUser {
+    let firstName : String
+    let lastName : String
+    let email : String
+    let password : String
+}
+
 struct UserManager {
     
     let loginApiURL = "https://api.dev2.constructn.ai/api/v1/users/signin"
@@ -49,13 +56,15 @@ struct UserManager {
         }
         print(request)
         let (data,response) =  try await URLSession.shared.data(for:request)
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        guard let response = response as? HTTPURLResponse, response.statusCode == 201 else {
             throw LoginError.invalidResponse
-            }
-        let res =  try JSONDecoder().decode(UserData.self, from: data)
-        print(res.result.token)
-        print(response)
-        return res
+        }
+        do {
+            let res =  try JSONDecoder().decode(UserData.self, from: data)
+            print(res.result.token)
+            print(response)
+            return res
+        }
     }
 }
 

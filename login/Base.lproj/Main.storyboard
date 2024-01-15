@@ -161,6 +161,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onRegisterClick:" destination="xce-Zn-97z" eventType="touchUpInside" id="zIB-qW-fa0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI0-pm-CDW">
                                 <rect key="frame" x="54" y="242" width="95" height="24"/>
@@ -207,6 +210,13 @@
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                     </view>
                     <navigationItem key="navigationItem" id="uKC-GN-D5I"/>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="BCK-R5-ZiR" id="OvF-5k-AWg"/>
+                        <outlet property="emailField" destination="T3R-Ud-paI" id="Jgt-nI-qqm"/>
+                        <outlet property="firstNameField" destination="k3x-tj-tIY" id="uWL-xJ-jJL"/>
+                        <outlet property="lastNameField" destination="A5n-XS-sW5" id="Mo9-8f-LDF"/>
+                        <outlet property="passwordField" destination="EDt-16-w3O" id="8iv-GJ-0Fd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1o-JG-ko7" sceneMemberID="firstResponder"/>
             </objects>

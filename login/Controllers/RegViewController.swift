@@ -8,11 +8,28 @@
 import UIKit
 
 class RegViewController: UIViewController {
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
+    
     var msg = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func onRegisterClick(_ sender: UIButton) {
+        
+        print(firstNameField.text)
+        print(lastNameField.text)
+        print(emailField.text)
+        print(passwordField.text)
+        print(confirmPasswordField.text)
     }
     
 
