@@ -55,8 +55,8 @@ class LoginViewController: UIViewController {
     }
     func sendAlert(title : String,message: String,actionTitle : String) {
         let uialert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-                uialert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
-                return self.present(uialert, animated: true, completion: nil)
+        uialert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
+        return self.present(uialert, animated: true, completion: nil)
     }
         func performLogin() async throws -> Bool {
         do {

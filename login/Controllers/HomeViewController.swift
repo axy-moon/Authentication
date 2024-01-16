@@ -12,12 +12,19 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
+    var projects : [Projects] = [
+        Projects(company: "Adani Groups", email: "adani@outlook.com"),
+        Projects(company: "Phoenix", email: "pheonix@gmail.com"),
+        Projects(company: "Tata", email: "tataprojects@tata.org")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameLabel.text = "Hello \(username)"
-        print(username)
+        navigationItem.hidesBackButton = true
+        ProjectTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var ProjectTableView: UITableView!
     
 
     /*
@@ -29,5 +36,19 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+}
 
+extension HomeViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return projects.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectsCell", for: indexPath)
+        cell.textLabel?.text = projects[indexPath.row].company
+        return cell
+    }
+    
+    
 }
