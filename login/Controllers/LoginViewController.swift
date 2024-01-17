@@ -24,12 +24,12 @@ class LoginViewController: UIViewController {
     @IBAction func onLoginPress(_ sender: UIButton) {
         
         if emailFIeld.text != "" && passwordField.text != "" {
-            user.email = emailFIeld.text!
-            user.password = passwordField.text!
-            if user.validateEmail() {
+            let email = emailFIeld.text!
+            let password = passwordField.text!
+            if user.validateEmail(email: email) {
                 do {
                     Task {
-                        let success = try await performLogin()
+                        let success = try await performLogin(email: email, password: password)
                     DispatchQueue.main.async {
                                 if (success) {
                                     self.performSegue(withIdentifier: "loginSuccess", sender: self)
@@ -58,9 +58,9 @@ class LoginViewController: UIViewController {
         uialert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
         return self.present(uialert, animated: true, completion: nil)
     }
-        func performLogin() async throws -> Bool {
+    func performLogin(email : String,password : String) async throws -> Bool {
         do {
-            let res = try await user.sendLoginRequest()
+            let res = try await user.sendLoginRequest(email: email, password: password)
             username = res.result.firstName + " " + res.result.lastName
             print(username)
             return res.success

@@ -49,6 +49,4 @@ extension HomeViewController : UITableViewDataSource {
         cell.textLabel?.text = projects[indexPath.row].company
         return cell
     }
-    
-    
 }

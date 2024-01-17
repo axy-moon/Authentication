@@ -11,6 +11,13 @@ struct UserData : Codable {
     let success : Bool
     let result : Result
 }
+//
+//{
+//  "firstName": "axy",
+//  "lastName": "moon",
+//  "email": "canotc25@gmail.com",
+//  "password": "password123"
+//}
 
 struct Result : Codable {
     let firstName : String
@@ -28,21 +35,20 @@ struct NewUser {
 
 struct UserManager {
     
-    let loginApiURL = "https://api.dev2.constructn.ai/api/v1/users/signin"
-    var email = ""
-    var password = ""
+    let baseURL = "https://api.dev2.constructn.ai/api/v1/"
     
     func loginUser(email : String,password : String) {
         print("User Logged In")
     }
     
-    func validateEmail() -> Bool {
+    func validateEmail(email : String) -> Bool {
         let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        return emailPredicate.evaluate(with: self.email)
+        return emailPredicate.evaluate(with: email)
     }
     
-    func sendLoginRequest() async throws -> UserData {
+    func sendLoginRequest(email : String, password : String) async throws -> UserData {
+        let loginApiURL = "\(baseURL)users/siginin"
         let url = URL(string : loginApiURL)!
         var request = URLRequest(url : url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -64,6 +70,33 @@ struct UserManager {
             print(res.result.token)
             print(response)
             return res
+        }
+    }
+    
+    func registerUser(fname : String,lname : String,email : String,password : String) async throws -> Bool {
+        
+        let registerApiURL = "\(baseURL)users/register"
+        let url = URL(string: registerApiURL)!
+        var request = URLRequest(url:url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        let parameter = [
+            "firstName" : fname,
+            "lastName" : lname,
+            "email" : email,
+            "password" : password
+        ]
+        
+        if let jsonData = try? JSONSerialization.data(withJSONObject: parameter) {
+            request.httpBody = jsonData
+        }
+        
+        let(data,response) = try await URLSession.shared.data(for: request)
+        if let response = response as? HTTPURLResponse , response.statusCode == 201  {
+            return true
+        } else{
+            return false
         }
     }
 }

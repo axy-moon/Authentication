@@ -16,6 +16,8 @@ class RegViewController: UIViewController {
     
     var msg = ""
     
+    var user = UserManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,13 +26,24 @@ class RegViewController: UIViewController {
     
     
     @IBAction func onRegisterClick(_ sender: UIButton) {
+    
+        guard firstNameField.text?.isEmpty == false && lastNameField.text?.isEmpty == false else { return }
+        let fname = firstNameField.text!
+        let lname = lastNameField.text!
+        let email = emailField.text!
+        let password = passwordField.text!
         
-        print(firstNameField.text)
-        print(lastNameField.text)
-        print(emailField.text)
-        print(passwordField.text)
-        print(confirmPasswordField.text)
+        let registered = sendRegisterRequest(fname: fname, lname: lname, email: email, password: password)
+        if registered {
+            print("Register Successful")
+        } else {
+            print("Error")
+        }
+        
+    
     }
+    
+    func sendRegisterRequest()
     
 
     /*
