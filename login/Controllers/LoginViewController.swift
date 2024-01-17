@@ -27,19 +27,7 @@ class LoginViewController: UIViewController {
             let email = emailFIeld.text!
             let password = passwordField.text!
             if user.validateEmail(email: email) {
-                do {
-                    Task {
-                        let success = try await performLogin(email: email, password: password)
-                    DispatchQueue.main.async {
-                                if (success) {
-                                    self.performSegue(withIdentifier: "loginSuccess", sender: self)
-                                } else {
-                                    self.sendAlert(title: "Access Denied", message: "Invalid Credentials", actionTitle: "Dismiss")
-                                }
-                    }
-                    }
-                    
-                }
+               handleLogin(email: email, password: password)
             } else {
                 sendAlert(title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
                 emailFIeld.text = ""
@@ -53,25 +41,17 @@ class LoginViewController: UIViewController {
     @IBAction func registerButton(_ sender: UIButton) {
         performSegue(withIdentifier: "register", sender: self)
     }
-    func sendAlert(title : String,message: String,actionTitle : String) {
-        let uialert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        uialert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
-        return self.present(uialert, animated: true, completion: nil)
-    }
-    func performLogin(email : String,password : String) async throws -> Bool {
-        do {
-            let res = try await user.sendLoginRequest(email: email, password: password)
-            username = res.result.firstName + " " + res.result.lastName
-            print(username)
-            return res.success
-        }
-        catch LoginError.invalidResponse {
-            print("Response Error")
-            return false
-        }
-        catch {
-            print("Unexpected Error")
-                return false
+
+    
+    func handleLogin(email : String,password : String) {
+        Task {
+            let res = try await user.sendLoginRequest(reqBody:  ["email" : email,"password":password])
+            if res.success {
+                performSegue(withIdentifier:"loginSuccess", sender: self)
+            }
+            else {
+                print("Failed")
+            }
         }
     }
     
@@ -83,10 +63,17 @@ class LoginViewController: UIViewController {
         }
         
         else if segue.identifier == "loginSuccess" {
-            let destinationVC = segue.destination as! HomeViewController
-            destinationVC.username = username
+            var destinationVC = segue.destination as! HomeViewController
         }
     }
     
 }
 
+extension LoginViewController {
+    
+    func sendAlert(title : String,message: String,actionTitle : String) {
+        let uialert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        uialert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
+        return self.present(uialert, animated: true, completion: nil)
+    }
+}

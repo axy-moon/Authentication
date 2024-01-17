@@ -47,17 +47,13 @@ struct UserManager {
         return emailPredicate.evaluate(with: email)
     }
     
-    func sendLoginRequest(email : String, password : String) async throws -> UserData {
-        let loginApiURL = "\(baseURL)users/siginin"
+    func sendLoginRequest(reqBody : [String : String]) async throws -> UserData {
+        let loginApiURL = "\(baseURL)users/signin"
         let url = URL(string : loginApiURL)!
         var request = URLRequest(url : url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        let parameters : [String : String] = [
-            "email" : email,
-            "password" : password
-        ]
-        if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: reqBody) {
             request.httpBody = jsonData
         }
         print(request)

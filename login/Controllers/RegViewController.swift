@@ -33,17 +33,19 @@ class RegViewController: UIViewController {
         let email = emailField.text!
         let password = passwordField.text!
         
-        let registered = sendRegisterRequest(fname: fname, lname: lname, email: email, password: password)
-        if registered {
-            print("Register Successful")
-        } else {
-            print("Error")
-        }
-        
+//        let registered = sendRegisterRequest(fname: fname, lname: lname, email: email, password: password)
+//        if registered {
+//            print("Register Successful")
+//        } else {
+//            print("Error")
+//        }
+//        
     
     }
     
-    func sendRegisterRequest()
+    func sendRegisterRequest() {
+        
+    }
     
 
     /*
