@@ -29,12 +29,12 @@ class LoginViewController: UIViewController {
             if user.validateEmail(email: email) {
                handleLogin(email: email, password: password)
             } else {
-                sendAlert(title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
+                sendAlert(on : self ,title: "Error", message: "Invalid Email", actionTitle: "Dismiss")
                 emailFIeld.text = ""
                 passwordField.text = ""
             }
         } else {
-                sendAlert(title: "Error", message: "All fields are required", actionTitle: "Dismiss")
+            sendAlert(on : self, title: "Error", message: "All fields are required", actionTitle: "Dismiss")
             }
     }
     
@@ -67,13 +67,4 @@ class LoginViewController: UIViewController {
         }
     }
     
-}
-
-extension LoginViewController {
-    
-    func sendAlert(title : String,message: String,actionTitle : String) {
-        let uialert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        uialert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
-        return self.present(uialert, animated: true, completion: nil)
-    }
 }

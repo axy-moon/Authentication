@@ -20,6 +20,7 @@
 		1D5ED45F2B4C2D870029ED12 /* loginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */; };
 		1D5ED4612B4C2D870029ED12 /* loginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */; };
 		1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD146B2B4D36DA0008E194 /* UserManager.swift */; };
+		1DC04AA72B580522008BFE7C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC04AA62B580522008BFE7C /* Alerts.swift */; };
 		1DF5B5582B565AC000DA022B /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5B5572B565AC000DA022B /* Projects.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITests.swift; sourceTree = "<group>"; };
 		1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1DBD146B2B4D36DA0008E194 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		1DC04AA62B580522008BFE7C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1DF5B5572B565AC000DA022B /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 		1D5ED43C2B4C2D870029ED12 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				1DC04AA52B580513008BFE7C /* Common */,
 				1DBD146E2B4D65E50008E194 /* Views */,
 				1DBD146D2B4D65D50008E194 /* Controllers */,
 				1DBD14682B4D362B0008E194 /* Model */,
@@ -164,6 +167,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1DC04AA52B580513008BFE7C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1DC04AA62B580522008BFE7C /* Alerts.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 			files = (
 				1DF5B5582B565AC000DA022B /* Projects.swift in Sources */,
 				1D5ED4422B4C2D870029ED12 /* LoginViewController.swift in Sources */,
+				1DC04AA72B580522008BFE7C /* Alerts.swift in Sources */,
 				1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */,
 				1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */,
 				1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */,

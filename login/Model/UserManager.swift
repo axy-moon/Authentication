@@ -69,7 +69,7 @@ struct UserManager {
         }
     }
     
-    func registerUser(fname : String,lname : String,email : String,password : String) async throws -> Bool {
+    func registerUser(reqBody : [String : String]) async throws -> Bool {
         
         let registerApiURL = "\(baseURL)users/register"
         let url = URL(string: registerApiURL)!
@@ -77,21 +77,14 @@ struct UserManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         
-        let parameter = [
-            "firstName" : fname,
-            "lastName" : lname,
-            "email" : email,
-            "password" : password
-        ]
-        
-        if let jsonData = try? JSONSerialization.data(withJSONObject: parameter) {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: reqBody) {
             request.httpBody = jsonData
         }
         
         let(data,response) = try await URLSession.shared.data(for: request)
         if let response = response as? HTTPURLResponse , response.statusCode == 201  {
             return true
-        } else{
+        } else {
             return false
         }
     }
