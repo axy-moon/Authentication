@@ -28,16 +28,29 @@ class RegViewController: UIViewController {
     
     @IBAction func onRegisterClick(_ sender: UIButton) {
     
-        guard firstNameField.text?.isEmpty == false && lastNameField.text?.isEmpty == false else { return }
+        if firstNameField.text == "" || lastNameField.text == ""  {
+            sendAlert(on: self, title: "Error", message: "All Fields are Required", actionTitle: "Dismiss")
+        }
+        
         let fname = firstNameField.text!
         let lname = lastNameField.text!
         
-        if let email = emailField.text {
-            if let password = passwordField.text {
+        if emailField.text != "" && passwordField.text != "" {
+            if confirmPasswordField.text == passwordField.text {
+                
+                let email = emailField.text!
+                let password = passwordField.text!
                 let params = ["firstName" :fname,"lastName":lname,"email":email,"password" : password ]
                 handleRegister(params: params)
             }
+            else {
+                sendAlert(on: self, title: "Error", message: "Passwords do not match", actionTitle: "Dismiss")
+            }
+
+        } else {
+            sendAlert(on: self, title: "Error", message: "All fields are required", actionTitle: "Dismiss")
         }
+        
         
         
     }
