@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */; };
-		1D483B702B51146A0044330C /* constructn_ai_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1D483B6F2B51146A0044330C /* constructn_ai_logo.jpeg */; };
 		1D483B722B51196C0044330C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D483B712B51196C0044330C /* HomeViewController.swift */; };
 		1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */; };
 		1D5ED4402B4C2D870029ED12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED43F2B4C2D870029ED12 /* SceneDelegate.swift */; };
@@ -19,6 +18,7 @@
 		1D5ED4552B4C2D870029ED12 /* loginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED4542B4C2D870029ED12 /* loginTests.swift */; };
 		1D5ED45F2B4C2D870029ED12 /* loginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */; };
 		1D5ED4612B4C2D870029ED12 /* loginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */; };
+		1D877BA32B592CD700F55354 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877BA22B592CD700F55354 /* ProfileViewController.swift */; };
 		1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD146B2B4D36DA0008E194 /* UserManager.swift */; };
 		1DC04AA72B580522008BFE7C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC04AA62B580522008BFE7C /* Alerts.swift */; };
 		1DF5B5582B565AC000DA022B /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5B5572B565AC000DA022B /* Projects.swift */; };
@@ -43,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
-		1D483B6F2B51146A0044330C /* constructn_ai_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = constructn_ai_logo.jpeg; path = ../../../../Downloads/constructn_ai_logo.jpeg; sourceTree = "<group>"; };
 		1D483B712B51196C0044330C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1D5ED43A2B4C2D870029ED12 /* login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		1D5ED45A2B4C2D870029ED12 /* loginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITests.swift; sourceTree = "<group>"; };
 		1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1D877BA22B592CD700F55354 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1DBD146B2B4D36DA0008E194 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1DC04AA62B580522008BFE7C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1DF5B5572B565AC000DA022B /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
@@ -118,7 +118,6 @@
 				1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */,
 				1D5ED43F2B4C2D870029ED12 /* SceneDelegate.swift */,
 				1D5ED4432B4C2D870029ED12 /* Main.storyboard */,
-				1D483B6F2B51146A0044330C /* constructn_ai_logo.jpeg */,
 				1D5ED4462B4C2D870029ED12 /* Assets.xcassets */,
 				1D5ED4482B4C2D870029ED12 /* LaunchScreen.storyboard */,
 				1D5ED44B2B4C2D870029ED12 /* Info.plist */,
@@ -158,6 +157,7 @@
 				1D5ED4412B4C2D870029ED12 /* LoginViewController.swift */,
 				1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */,
 				1D483B712B51196C0044330C /* HomeViewController.swift */,
+				1D877BA22B592CD700F55354 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,7 +284,6 @@
 				1D5ED44A2B4C2D870029ED12 /* LaunchScreen.storyboard in Resources */,
 				1D5ED4472B4C2D870029ED12 /* Assets.xcassets in Resources */,
 				1D5ED4452B4C2D870029ED12 /* Main.storyboard in Resources */,
-				1D483B702B51146A0044330C /* constructn_ai_logo.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +314,7 @@
 				1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */,
 				1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */,
 				1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */,
+				1D877BA32B592CD700F55354 /* ProfileViewController.swift in Sources */,
 				1D5ED4402B4C2D870029ED12 /* SceneDelegate.swift in Sources */,
 				1D483B722B51196C0044330C /* HomeViewController.swift in Sources */,
 			);
@@ -501,6 +501,7 @@
 				DEVELOPMENT_TEAM = 8WD6MQY7NB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = login/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "constructn-clone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -530,6 +531,7 @@
 				DEVELOPMENT_TEAM = 8WD6MQY7NB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = login/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "constructn-clone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

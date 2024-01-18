@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         ProjectTableView.dataSource = self
+//        print(UserDefaults.standard.string(forKey: "token")!)
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var ProjectTableView: UITableView!

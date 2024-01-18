@@ -37,7 +37,6 @@ class RegViewController: UIViewController {
         
         if emailField.text != "" && passwordField.text != "" {
             if confirmPasswordField.text == passwordField.text {
-                
                 let email = emailField.text!
                 let password = passwordField.text!
                 let params = ["firstName" :fname,"lastName":lname,"email":email,"password" : password ]

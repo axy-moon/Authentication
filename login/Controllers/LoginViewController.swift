@@ -45,12 +45,12 @@ class LoginViewController: UIViewController {
     
     func handleLogin(email : String,password : String) {
         Task {
-            let res = try await user.sendLoginRequest(reqBody:  ["email" : email,"password":password])
-            if res.success {
+            let res = try await user.loginUser(reqBody:  ["email" : email,"password":password])
+            if res {
                 performSegue(withIdentifier:"loginSuccess", sender: self)
             }
             else {
-                print("Failed")
+                sendAlert(on: self, title: "Error", message: "Invalid Credentials", actionTitle: "Retry")
             }
         }
     }
@@ -63,7 +63,8 @@ class LoginViewController: UIViewController {
         }
         
         else if segue.identifier == "loginSuccess" {
-            var destinationVC = segue.destination as! HomeViewController
+            var destinationVC = segue.destination as! UITabBarController
+            destinationVC.modalPresentationStyle = .fullScreen
         }
     }
     
