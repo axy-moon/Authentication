@@ -11,14 +11,6 @@ struct UserData : Codable {
     let success : Bool
     let result : Result
 }
-//
-//{
-//  "firstName": "axy",
-//  "lastName": "moon",
-//  "email": "canotc25@gmail.com",
-//  "password": "password123"
-//}
-
 
 struct Result : Codable {
     let firstName : String
@@ -33,6 +25,14 @@ struct Profile : Codable {
 
 struct Res : Codable {
     let fullName : String
+    let gender : String
+    let email : String
+    let contact : Contact
+}
+
+struct Contact : Codable {
+    let code : String
+    let number : Int
 }
 
 struct NewUser {

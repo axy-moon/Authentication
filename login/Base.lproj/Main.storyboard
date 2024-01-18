@@ -365,6 +365,9 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="j0q-ZU-smZ"/>
                     <connections>
                         <outlet property="box" destination="Wra-YX-fs5" id="SvK-6g-UBs"/>
+                        <outlet property="contactLabel" destination="o5q-YU-uI7" id="67S-gb-Hb3"/>
+                        <outlet property="genderLabel" destination="JPZ-Y9-5G8" id="eK4-cm-aKK"/>
+                        <outlet property="mailLabel" destination="WPr-mi-ptv" id="tEh-9f-oqX"/>
                         <outlet property="usernameLabel" destination="ZxG-Iq-3ZI" id="mD8-FC-PhH"/>
                     </connections>
                 </viewController>

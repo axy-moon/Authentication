@@ -5,6 +5,11 @@ class ProfileViewController: UIViewController {
     var username = ""
     @IBOutlet weak var box: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    @IBOutlet weak var mailLabel: UILabel!
+    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    
     var user = UserManager()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +23,10 @@ class ProfileViewController: UIViewController {
             do {
                 let res = try await user.getProfile()
                 usernameLabel.text = res.result.fullName
+                mailLabel.text = res.result.email
+                genderLabel.text = res.result.gender
+                let number = "\(res.result.contact.code) \(res.result.contact.number)"
+                contactLabel.text = number
             } catch APIError.invalidResponse {
                 print("API Error")
             } catch {
