@@ -7,44 +7,9 @@
 
 import Foundation
 
-struct UserData : Codable {
-    let success : Bool
-    let result : Result
-}
-
-struct Result : Codable {
-    let firstName : String
-    let lastName : String
-    let email : String
-    let token : String
-}
-
-struct Profile : Codable {
-    let result : Res
-}
-
-struct Res : Codable {
-    let fullName : String
-    let gender : String
-    let email : String
-    let contact : Contact
-}
-
-struct Contact : Codable {
-    let code : String
-    let number : Int
-}
-
-struct NewUser {
-    let firstName : String
-    let lastName : String
-    let email : String
-    let password : String
-}
 
 struct UserManager {
     
-    let baseURL = "https://api.dev2.constructn.ai/api/v1/"
     
     func loginUser(email : String,password : String) {
         print("User Logged In")
@@ -57,7 +22,7 @@ struct UserManager {
     }
     
     func loginUser(reqBody : [String : String]) async throws -> Bool {
-        let loginApiURL = "\(baseURL)users/signin"
+        let loginApiURL = "\(Constants.API_BASE_URL)users/signin"
         let url = URL(string : loginApiURL)!
         var request = URLRequest(url : url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -79,7 +44,7 @@ struct UserManager {
     
     func registerUser(reqBody : [String : String]) async throws -> Bool {
         
-        let registerApiURL = "\(baseURL)users/register"
+        let registerApiURL = "\(Constants.API_BASE_URL)users/register"
         let url = URL(string: registerApiURL)!
         var request = URLRequest(url:url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -97,8 +62,10 @@ struct UserManager {
         }
     }
     
+
+    
     func getProfile() async throws -> Profile {
-        let profileURL = "\(baseURL)users/profile?companies=false"
+        let profileURL = "\(Constants.API_BASE_URL)users/profile?companies=false"
         let url = URL(string: profileURL)!
         var request = URLRequest(url: url)
         let token = UserDefaults.standard.string(forKey: "token")!
@@ -110,6 +77,7 @@ struct UserManager {
             print(response)
             throw APIError.invalidResponse
         }
+        
         let profileData = try JSONDecoder().decode(Profile.self, from: data)
         print(profileData.result.fullName)
         return profileData
@@ -118,5 +86,15 @@ struct UserManager {
 
 enum APIError : Error {
     case invalidResponse
+    case decodeError
 }
+
+
+
+
+
+
+
+
+
 

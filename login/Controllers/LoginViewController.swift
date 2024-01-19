@@ -63,7 +63,7 @@ class LoginViewController: UIViewController {
         }
         
         else if segue.identifier == "loginSuccess" {
-            var destinationVC = segue.destination as! UITabBarController
+            let destinationVC = segue.destination as! UITabBarController
             destinationVC.modalPresentationStyle = .fullScreen
         }
     }

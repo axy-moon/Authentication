@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
     var username = ""
     
     @IBOutlet weak var usernameLabel: UILabel!
+    var userProjects = ProjectManager()
     
     var projects : [Projects] = [
         Projects(company: "Adani Groups", email: "adani@outlook.com"),
@@ -18,10 +19,21 @@ class HomeViewController: UIViewController {
         Projects(company: "Tata", email: "tataprojects@tata.org")
     ]
     
+    var user = UserManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        
+        Task {
+            let res = try await userProjects.getProjects()
+            for i in res.result {
+                projects.append(Projects(company: i.name, email: i.status))
+            }
+        }
         ProjectTableView.dataSource = self
+        
+        
 //        print(UserDefaults.standard.string(forKey: "token")!)
         // Do any additional setup after loading the view.
     }
