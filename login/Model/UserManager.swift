@@ -54,11 +54,12 @@ struct UserManager {
     func getProfile() async throws -> Profile {
         let profileURL = "\(Constants.API_BASE_URL)users/profile?companies=false"
         let url = URL(string: profileURL)!
-        var request = URLRequest(url: url)
-        let token = UserDefaults.standard.string(forKey: "token")!
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
+        do {
+            var request = try makeGetRequestWithToken(url: url)
+        } catch APIError.tokenNotFoundError {
+            print("Token Not Found")
+        }
+        
         let (data,response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse , response.statusCode == 200 else {
             print(response)

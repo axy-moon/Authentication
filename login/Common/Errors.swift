@@ -17,6 +17,7 @@ enum APIError : Error {
     case invalidResponse
     case decodeError
     case invalidURL
+    case tokenNotFoundError
 }
 
 
