@@ -37,7 +37,14 @@ class ProfileViewController: UIViewController {
         
     }
     
-
+    
+    
+    
+    @IBAction func EditProfile(_ sender: UIButton) {
+        let vc = EditProfileViewController()
+        present(vc,animated : true,completion : nil)
+    }
+    
     /*
     // MARK: - Navigation
 

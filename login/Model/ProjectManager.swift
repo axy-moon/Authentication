@@ -17,7 +17,7 @@ struct ProjectList : Codable {
 struct ProjectManager {
     
      func getProjects() async throws -> ProjectList {
-         let projectsURL = "\(Constants.API_BASE_URL)/projects"
+        let projectsURL = "\(Constants.API_BASE_URL)/projects"
         let url = URL(string: projectsURL)!
         var request = URLRequest(url: url)
         let token = UserDefaults.standard.string(forKey: "token")!
@@ -35,6 +35,5 @@ struct ProjectManager {
         }
         print("Projects" , projects.success)
         return projects
-        
     }
 }

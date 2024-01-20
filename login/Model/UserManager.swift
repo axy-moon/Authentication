@@ -84,11 +84,6 @@ struct UserManager {
     }
 }
 
-enum APIError : Error {
-    case invalidResponse
-    case decodeError
-}
-
 
 
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D06384B2B5A866900621D2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D06384A2B5A866900621D2F /* Constants.swift */; };
 		1D06384D2B5A8C1B00621D2F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D06384C2B5A8C1B00621D2F /* UserModel.swift */; };
+		1D06384F2B5A96D800621D2F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D06384E2B5A96D800621D2F /* Errors.swift */; };
+		1D0638512B5A9B9A00621D2F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0638502B5A9B9A00621D2F /* EditProfileViewController.swift */; };
 		1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */; };
 		1D483B722B51196C0044330C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D483B712B51196C0044330C /* HomeViewController.swift */; };
 		1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */; };
@@ -21,6 +23,7 @@
 		1D5ED45F2B4C2D870029ED12 /* loginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */; };
 		1D5ED4612B4C2D870029ED12 /* loginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */; };
 		1D877BA32B592CD700F55354 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D877BA22B592CD700F55354 /* ProfileViewController.swift */; };
+		1D9DCE9F2B5C354800C492B0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9DCE9E2B5C354800C492B0 /* Network.swift */; };
 		1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD146B2B4D36DA0008E194 /* UserManager.swift */; };
 		1DC04AA72B580522008BFE7C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC04AA62B580522008BFE7C /* Alerts.swift */; };
 		1DF5B5582B565AC000DA022B /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5B5572B565AC000DA022B /* ProjectManager.swift */; };
@@ -46,6 +49,8 @@
 /* Begin PBXFileReference section */
 		1D06384A2B5A866900621D2F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D06384C2B5A8C1B00621D2F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		1D06384E2B5A96D800621D2F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		1D0638502B5A9B9A00621D2F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		1D483B712B51196C0044330C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1D5ED43A2B4C2D870029ED12 /* login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = login.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +67,7 @@
 		1D5ED45E2B4C2D870029ED12 /* loginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITests.swift; sourceTree = "<group>"; };
 		1D5ED4602B4C2D870029ED12 /* loginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D877BA22B592CD700F55354 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1D9DCE9E2B5C354800C492B0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		1DBD146B2B4D36DA0008E194 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1DC04AA62B580522008BFE7C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1DF5B5572B565AC000DA022B /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
@@ -121,7 +127,6 @@
 				1DBD14682B4D362B0008E194 /* Model */,
 				1D5ED43D2B4C2D870029ED12 /* AppDelegate.swift */,
 				1D5ED43F2B4C2D870029ED12 /* SceneDelegate.swift */,
-				1D5ED4432B4C2D870029ED12 /* Main.storyboard */,
 				1D5ED4462B4C2D870029ED12 /* Assets.xcassets */,
 				1D5ED4482B4C2D870029ED12 /* LaunchScreen.storyboard */,
 				1D5ED44B2B4C2D870029ED12 /* Info.plist */,
@@ -163,6 +168,7 @@
 				1D0D8A0D2B4EB88B00E81B14 /* RegViewController.swift */,
 				1D483B712B51196C0044330C /* HomeViewController.swift */,
 				1D877BA22B592CD700F55354 /* ProfileViewController.swift */,
+				1D0638502B5A9B9A00621D2F /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 		1DBD146E2B4D65E50008E194 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D5ED4432B4C2D870029ED12 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +186,8 @@
 			children = (
 				1DC04AA62B580522008BFE7C /* Alerts.swift */,
 				1D06384A2B5A866900621D2F /* Constants.swift */,
+				1D06384E2B5A96D800621D2F /* Errors.swift */,
+				1D9DCE9E2B5C354800C492B0 /* Network.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -314,16 +323,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0638512B5A9B9A00621D2F /* EditProfileViewController.swift in Sources */,
 				1DF5B5582B565AC000DA022B /* ProjectManager.swift in Sources */,
 				1D5ED4422B4C2D870029ED12 /* LoginViewController.swift in Sources */,
 				1DC04AA72B580522008BFE7C /* Alerts.swift in Sources */,
 				1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */,
+				1D06384F2B5A96D800621D2F /* Errors.swift in Sources */,
 				1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */,
 				1D06384B2B5A866900621D2F /* Constants.swift in Sources */,
 				1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */,
 				1D877BA32B592CD700F55354 /* ProfileViewController.swift in Sources */,
 				1D5ED4402B4C2D870029ED12 /* SceneDelegate.swift in Sources */,
 				1D483B722B51196C0044330C /* HomeViewController.swift in Sources */,
+				1D9DCE9F2B5C354800C492B0 /* Network.swift in Sources */,
 				1D06384D2B5A8C1B00621D2F /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

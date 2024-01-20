@@ -13,11 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     var userProjects = ProjectManager()
     
-    var projects : [Projects] = [
-        Projects(company: "Adani Groups", email: "adani@outlook.com"),
-        Projects(company: "Phoenix", email: "pheonix@gmail.com"),
-        Projects(company: "Tata", email: "tataprojects@tata.org")
-    ]
+    var projects : [String] = []
     
     var user = UserManager()
     
@@ -28,8 +24,9 @@ class HomeViewController: UIViewController {
         Task {
             let res = try await userProjects.getProjects()
             for i in res.result {
-                projects.append(Projects(company: i.name, email: i.status))
+                projects.append(i.name)
             }
+            ProjectTableView.reloadData()
         }
         ProjectTableView.dataSource = self
         
@@ -52,14 +49,14 @@ class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController : UITableViewDataSource {
+extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectsCell", for: indexPath)
-        cell.textLabel?.text = projects[indexPath.row].company
+        cell.textLabel?.text = projects[indexPath.row]
         return cell
     }
 }
