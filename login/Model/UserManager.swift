@@ -24,13 +24,7 @@ struct UserManager {
     func loginUser(reqBody : [String : String]) async throws -> Bool {
         let loginApiURL = "\(Constants.API_BASE_URL)users/signin"
         let url = URL(string : loginApiURL)!
-        var request = URLRequest(url : url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        if let jsonData = try? JSONSerialization.data(withJSONObject: reqBody) {
-            request.httpBody = jsonData
-        }
-        print(request)
+       var request = makePostRequest(parameters: reqBody, url: url)
         let (data,response) =  try await URLSession.shared.data(for:request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 201 else {
             return false
@@ -46,14 +40,7 @@ struct UserManager {
         
         let registerApiURL = "\(Constants.API_BASE_URL)users/register"
         let url = URL(string: registerApiURL)!
-        var request = URLRequest(url:url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        
-        if let jsonData = try? JSONSerialization.data(withJSONObject: reqBody) {
-            request.httpBody = jsonData
-        }
-        
+        var request = makePostRequest(parameters: reqBody, url: url)
         let(_ ,response) = try await URLSession.shared.data(for: request)
         if let response = response as? HTTPURLResponse , response.statusCode == 201  {
             return true
