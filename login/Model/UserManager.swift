@@ -55,9 +55,7 @@ struct UserManager {
         let profileURL = "\(Constants.API_BASE_URL)users/profile?companies=false"
         let url = URL(string: profileURL)!
 
-            var request = try makeGetRequestWithToken(url: url)
-
-        
+        var request = try makeGetRequestWithToken(url: url)
         let (data,response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse , response.statusCode == 200 else {
             print(response)

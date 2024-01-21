@@ -31,3 +31,15 @@ func makeGetRequestWithToken(url : URL) throws -> URLRequest {
     
     
 }
+
+func makeRequestWithToken(url:URL,method : String) throws -> URLRequest {
+    var request = URLRequest(url : url)
+    guard let token = UserDefaults.standard.string(forKey: "token") else {
+        throw APIError.tokenNotFoundError
+    }
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+    request.httpMethod = method
+    
+    return request
+}
