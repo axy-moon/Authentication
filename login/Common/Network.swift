@@ -28,8 +28,6 @@ func makeGetRequestWithToken(url : URL) throws -> URLRequest {
     request.httpMethod = "GET"
     
     return request
-    
-    
 }
 
 func makeRequestWithToken(url:URL,method : String) throws -> URLRequest {

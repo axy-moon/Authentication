@@ -24,7 +24,7 @@ struct UserManager {
     func loginUser(reqBody : [String : String]) async throws -> Bool {
         let loginApiURL = "\(Constants.API_BASE_URL)users/signin"
         let url = URL(string : loginApiURL)!
-       var request = makePostRequest(parameters: reqBody, url: url)
+        let request = makePostRequest(parameters: reqBody, url: url)
         let (data,response) =  try await URLSession.shared.data(for:request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 201 else {
             return false
@@ -40,7 +40,7 @@ struct UserManager {
         
         let registerApiURL = "\(Constants.API_BASE_URL)users/register"
         let url = URL(string: registerApiURL)!
-        var request = makePostRequest(parameters: reqBody, url: url)
+        let request = makePostRequest(parameters: reqBody, url: url)
         let(_ ,response) = try await URLSession.shared.data(for: request)
         if let response = response as? HTTPURLResponse , response.statusCode == 201  {
             return true
@@ -55,7 +55,7 @@ struct UserManager {
         let profileURL = "\(Constants.API_BASE_URL)users/profile?companies=false"
         let url = URL(string: profileURL)!
 
-        var request = try makeGetRequestWithToken(url: url)
+        let request = try makeGetRequestWithToken(url: url)
         let (data,response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse , response.statusCode == 200 else {
             print(response)
