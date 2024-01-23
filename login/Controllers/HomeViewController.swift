@@ -59,4 +59,8 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = projects[indexPath.row]
         return cell
     }
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(projects[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

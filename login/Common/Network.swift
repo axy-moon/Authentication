@@ -18,23 +18,10 @@ func makePostRequest(parameters : [String : String], url : URL) -> URLRequest {
     return request
 }
 
-func makeGetRequestWithToken(url : URL) throws -> URLRequest {
-    var request = URLRequest(url : url)
-    guard let token = UserDefaults.standard.string(forKey: "token") else {
-        throw APIError.tokenNotFoundError
-    }
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
-    request.httpMethod = "GET"
-    
-    return request
-}
-
 func makeRequestWithToken(url:URL,method : String) throws -> URLRequest {
     var request = URLRequest(url : url)
     guard let token = UserDefaults.standard.string(forKey: "token") else {
-        throw APIError.tokenNotFoundError
-    }
+        throw APIError.tokenNotFoundError }
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
     request.httpMethod = method

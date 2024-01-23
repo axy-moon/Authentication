@@ -19,11 +19,7 @@ struct ProjectManager {
      func getProjects() async throws -> ProjectList {
         let projectsURL = "\(Constants.API_BASE_URL)/projects"
         let url = URL(string: projectsURL)!
-        var request = URLRequest(url: url)
-        let token = UserDefaults.standard.string(forKey: "token")!
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
+        var request = try makeRequestWithToken(url: url, method: "GET")
         let (data,response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse , response.statusCode == 200 else {
             print(response)

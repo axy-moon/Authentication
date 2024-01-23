@@ -27,6 +27,7 @@
 		1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD146B2B4D36DA0008E194 /* UserManager.swift */; };
 		1DC04AA72B580522008BFE7C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC04AA62B580522008BFE7C /* Alerts.swift */; };
 		1DF5B5582B565AC000DA022B /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5B5572B565AC000DA022B /* ProjectManager.swift */; };
+		82C3A0EA2B5E936700EF4CDA /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3A0E92B5E936700EF4CDA /* ProjectDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1DBD146B2B4D36DA0008E194 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1DC04AA62B580522008BFE7C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1DF5B5572B565AC000DA022B /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		82C3A0E92B5E936700EF4CDA /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				1D483B712B51196C0044330C /* HomeViewController.swift */,
 				1D877BA22B592CD700F55354 /* ProfileViewController.swift */,
 				1D0638502B5A9B9A00621D2F /* EditProfileViewController.swift */,
+				82C3A0E92B5E936700EF4CDA /* ProjectDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				1D0D8A0E2B4EB88B00E81B14 /* RegViewController.swift in Sources */,
 				1D06384F2B5A96D800621D2F /* Errors.swift in Sources */,
 				1D5ED43E2B4C2D870029ED12 /* AppDelegate.swift in Sources */,
+				82C3A0EA2B5E936700EF4CDA /* ProjectDetailsVC.swift in Sources */,
 				1D06384B2B5A866900621D2F /* Constants.swift in Sources */,
 				1DBD146C2B4D36DA0008E194 /* UserManager.swift in Sources */,
 				1D877BA32B592CD700F55354 /* ProfileViewController.swift in Sources */,
